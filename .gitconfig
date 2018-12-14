@@ -1,0 +1,200 @@
+[user]
+	name = Scott Peterson
+	email = scott.peterson4@gmail.com
+
+[color]
+    ui     = true
+    branch = auto
+    diff   = auto
+    status = auto
+
+[color "branch"]
+    current = red bold
+    local   = green bold
+    remote  = blue bold
+    upstream = blue bold
+
+[color "diff"]
+    meta       = yellow bold
+    frag       = magenta bold
+    old        = red bold
+    new        = green bold
+    whitespace = red reverse
+
+[color "status"]
+    added     = yellow
+    changed   = green
+    untracked = cyan
+
+[core]
+    autocrlf    = false
+    editor = /Applications/Sublime\\ Text.app/Contents/SharedSupport/bin/subl
+    excludesfile = /Users/scottpeterson/.gitignore_global
+    commentchar = auto
+    whitespace  = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+
+[diff]
+    # git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
+    # instead of a/b/c/d as prefixes for patches
+    mnemonicprefix = true
+    compactionHeuristic = true
+    submodule = log
+
+[log]
+    decorate = full
+
+[stash]
+    showpatch = true
+
+[rebase]
+    autostash = true
+
+[branch]
+    autosetupmerge = true
+
+[merge]
+    summary   = true
+    verbosity = 1
+    ff        = false
+    conflictstyle = diff3
+
+[apply]
+    whitespace = nowarn
+
+[incude]
+    path = ~/.local_gitconfig
+
+[pull]
+    rebase = true
+    ff = only
+
+[push]
+    default = tracking
+
+[fetch]
+    prune = true
+
+[alias]
+    git = !exec git
+
+    # log (default: current branch)
+    l  = log --graph --date=local --pretty=format:'%C(yellow)%h %C(cyan)%ad %C(reset)%s %C(bold blue)%aN%C(bold red)%d'
+    lr = log --graph --date=local --pretty=format:'%C(yellow)%h %C(cyan)%ad %C(green)(%ar) %C(reset)%s %C(bold blue)%aN%C(bold red)%d'
+    ll = log --graph --date=local --name-status --decorate
+    lb = log --graph --date=local --name-status --pretty=format:'%C(yellow)%h %C(cyan)%ad %C(green)(%ar) %C(bold blue)%aN%C(reset)%C(bold red)%d%n%C(bold white)%s%n'
+    lx = log --date=local --pretty=format:'%h|%aN|%ad|%ar|%s'
+
+    # log (all branches)
+    la  = log --all --graph --date=local --pretty=format:'%C(yellow)%h %C(cyan)%ad %C(reset)%s %C(bold blue)%aN%C(bold red)%d'
+    lra = log --all --graph --date=local --pretty=format:'%C(yellow)%h %C(cyan)%ad %C(green)(%ar) %C(reset)%s %C(bold blue)%aN%C(bold red)%d'
+    lla = log --all --graph --date=local --name-status --decorate
+    lba = log --all --graph --date=local --name-status --pretty=format:'%C(yellow)%h %C(cyan)%ad %C(green)(%ar) %C(bold blue)%aN%C(reset)%C(bold red)%d%n%C(bold white)%s%n'
+    lxa = log --all --date=local --pretty=format:'%h|%aN|%ad|%ar|%s'
+
+    # reading new commits
+    # http://gitready.com/advanced/2011/10/21/ribbon-and-catchup-reading-new-commits.html
+    ribbon     = tag --force _ribbon origin/master
+    catchup    = log --patch --reverse --first-parent -m --topo-order _ribbon..origin/master
+    catchupall = log --patch --reverse --topo-order _ribbon..origin/master
+
+    # file information
+    showf    = show --pretty="format:" --name-only
+    filelog  = log -u   # show changes to a file
+    relnotes = shortlog
+
+    # timeline of who is working on what and when
+    precommit = diff --cached --diff-algorithm=minimal -w
+
+    # status
+    s  = status -s
+    st = status
+
+    # grep
+    g = grep -n -i -a --untracked
+
+    # diff
+    d  = diff
+    dc = diff --cached
+    dl = diff HEAD^
+
+    wdiff = diff --color-words
+
+    # stash
+    ss       = stash         # stash changes
+    sl       = stash list    # list stashes
+    sa       = stash apply   # apply stash (restore changes)
+    sd       = stash drop    # drop stashes (destory changes)
+    stashes  = stash list
+    snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+
+    # braching
+    b        = branch
+    bl       = branch -v -v -a
+    cob      = checkout -b
+    branches = branch -a
+
+    # index add
+    a  = add
+    ap = add --patch
+
+    # index manipulation
+    assume   = update-index --assume-unchanged
+    unassume = update-index --no-assume-unchanged
+    assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
+
+    # "unstaging"
+    unstage  = reset -q HEAD --
+    discard  = checkout --
+    uncommit = reset --mixed HEAD~
+    amend    = commit --amend
+    nuke     = !git reset --hard HEAD && git clean -d -f
+
+    # committing
+    c  = commit -m
+    ci = commit
+    ca = commit -am
+
+    # merging
+    ours   = "!f() { git checkout --ours $@ && git add $@; }; f"
+    theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+    mt     = mergetool
+    mnf    = merge --no-ff
+
+    # tagging
+    tags = tag
+    t    = tag -n   # show tags with <n> lines of each tag message
+
+    # repository stuff
+    cl      = clone
+    co      = checkout
+    pl      = pull
+    ph      = push
+    rv      = remote -v
+    remotes = remote -v
+
+    # cherry picking
+    ch     = cherry -v
+    cp     = cherry-pick -x
+    cherry = cherry-pick -x
+
+    # patches
+    fp = format-patch -1
+
+    # rebase
+    r        = rebase
+    rc       = rebase --continue
+    rs       = rebase --skip
+    continue = rebase --continue
+    skip     = rebase --skip
+
+    # submodules
+    sdiff   = !git diff && git submodule foreach 'git diff'
+    spush   = push --recurse-submodules=on-demand
+    supdate = submodule update --remote --merge
+
+    permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

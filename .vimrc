@@ -1,1 +1,2 @@
-let g:ackprg = 'ag --nogroup --nocolor --column'
+set background=dark
+syntax on

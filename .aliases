@@ -12,7 +12,16 @@ alias -- -="cd -"
 alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
+alias dock="which docker ; which docker-compose ; which docker-machine ; docker --version ; docker-compose --version ; docker-machine --version"
+alias fig='docker-compose'
 
+
+#Git Aliases
+alias g="git"
+alias ga="git add"
+alias gs="git status"
+alias gc="git commit -m"
+alias gitp="git pull --ff-only"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -116,8 +125,4 @@ alias reload="exec ${SHELL} -l"
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
-#Git Aliases
-alias gs="git status"
-alias gc="git commit -m"
-alias ga="git add"
-alias g="git"
+

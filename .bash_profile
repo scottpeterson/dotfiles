@@ -9,8 +9,6 @@ unset file;
 PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
 export PATH
 
-source /usr/local/bin/virtualenvwrapper.sh
-
 case $- in
    *i*) if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 esac

@@ -5,7 +5,6 @@ ruby -e "$(curl -fsSL https://raw.github.com/wellsriley/YosemiteSanFranciscoFont
 
 echo Install Homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew tap homebrew/science
 
 echo Homebrew Maintenance
 brew doctor
@@ -22,12 +21,10 @@ declare -a cask_apps=(
   'iterm2'
   'transmit'
   'sublime-text'
-  'slack'
   'github'
   'visual-studio-code'
   'git'
   'tree'
-  'firefox'
   # 'postgresql'
   # 'go'
   # 'golang'
@@ -42,9 +39,6 @@ declare -a cask_apps=(
 for app in "${cask_apps[@]}"; do
   brew cask install "$app"
 done
-
-# Development
-xcode-select --install
 
 # cleanup
 brew cleanup --force

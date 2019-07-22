@@ -5,16 +5,13 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias dock="which docker ; which docker-compose ; which docker-machine ; docker --version ; docker-compose --version ; docker-machine --version"
 alias fig='docker-compose'
-
 
 #Git Aliases
 alias g="git"
@@ -22,6 +19,8 @@ alias ga="git add"
 alias gs="git status"
 alias gc="git commit -m"
 alias gitp="git pull --ff-only"
+alias gitco="git checkout"
+alias gcb="git checkout -b"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -55,6 +54,9 @@ alias sudo='sudo '
 
 # Get week number
 alias week='date +%V'
+
+# A bunch of stuff
+alias do_all='update ; lscleanup ; cleanup ; emptytrash'
 
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
@@ -124,5 +126,3 @@ alias reload="exec ${SHELL} -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
-
-

@@ -13,6 +13,4 @@ case $- in
    *i*) if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 esac
 
-alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-

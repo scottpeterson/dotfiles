@@ -21,7 +21,7 @@ alias gc="git commit -m"
 alias gitp="git pull --ff-only"
 alias gitco="git checkout"
 alias gcb="git checkout -b"
-alias gitall="cd ~/projects/metro_landstar/web ; gp ; cd ~/projects/metro_landstar/android ; gp ; cd ~/notes ; gp ; cd ~/dotfiles/dotfiles ; gp"
+alias gitall="cd ~/projects/metro_landstar/web ; git fetch ; gp ; cd ~/projects/metro_landstar/android ; git fetch ; gp ; cd ~/notes ; gp ; cd ~/dotfiles/dotfiles ; git fetch ; gp"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`

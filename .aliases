@@ -5,7 +5,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias -- -="cd -"
 
 # Shortcuts
 alias dl="cd ~/Downloads"
@@ -60,7 +59,7 @@ alias week='date +%V'
 alias do_all='update ; cleanup ; emptytrash'
 
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; sudo gem update --system; sudo gem update; sudo gem cleanup'
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"

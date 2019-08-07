@@ -12,11 +12,15 @@ alias dt="cd ~/Desktop"
 alias dock="which docker ; which docker-compose ; which docker-machine ; docker --version ; docker-compose --version ; docker-machine --version"
 alias fig='docker-compose'
 
+# Rider
+alias r="rider"
+
 #Git Aliases
 alias g="git"
 alias ga="git add"
 alias gs="git status"
 alias gc="git commit -m"
+alias gcma="git commit -a -m"
 alias gitp="git pull --ff-only"
 alias gitco="git checkout"
 alias gcb="git checkout -b"
@@ -36,6 +40,7 @@ alias l="ls -lF ${colorflag}"
 
 # List all files colorized in long format, including dot files
 alias la="ls -laF ${colorflag}"
+alias lt="ls -latF ${colorflag}"
 
 # List only directories
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"

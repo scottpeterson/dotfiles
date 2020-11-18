@@ -6,6 +6,11 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+#Metro project shortcuts
+alias server="cd projects/metro_landstar/web/Landstar.Metro.Web"
+alias client="cd projects/metro_landstar/web/Landstar.Metro.Web/ClientApp"
+alias project="cd projects/metro_landstar/web"
+
 # Shortcuts
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"

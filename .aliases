@@ -21,10 +21,11 @@ alias ga="git add"
 alias gs="git status"
 alias gc="git commit -m"
 alias gcma="git commit -a -m"
-alias gitp="git pull --ff-only"
-alias gitco="git checkout"
+alias gp="git pull --ff-only"
+alias gco="git checkout"
 alias gcb="git checkout -b"
-alias gitall="cd ~/projects/metro_landstar/web ; git fetch ; gp ; cd ~/projects/metro_landstar/android ; git fetch ; gp ; cd ~/notes ; gp ; cd ~/dotfiles/dotfiles ; git fetch ; gp ; cd ~"
+alias gb="git branch"
+alias gba="git branch -a"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -61,10 +62,18 @@ alias sudo='sudo '
 alias week='date +%V'
 
 # A bunch of stuff
-alias do_all='update ; cleanup ; emptytrash'
+alias do_all='update ; brewall ; mu ; cleanup ; emptytrash'
 
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup'
+alias update='sudo softwareupdate -i -a;'
+
+# Homebrew
+alias bs='brew search'
+alias bci='brew cask install'
+alias brewall='brew update; brew doctor; brew outdated; brew upgrade; brew cleanup -s --prune=1; brew upgrade --cask'
+
+# mas upgrade
+alias mu='mas outdated ; mas upgrade'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"

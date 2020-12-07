@@ -4,3 +4,4 @@ diff .bash_prompt ~/.bash_prompt
 diff .bashrc ~/.bashrc
 diff .profile ~/.profile
 diff .vimrc ~/.vimrc
+diff .zshrc ~/.zshrc

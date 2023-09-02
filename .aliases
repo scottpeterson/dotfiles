@@ -6,11 +6,6 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
-#Metro project shortcuts
-alias server="cd projects/metro_landstar/web/Landstar.Metro.Web"
-alias client="cd projects/metro_landstar/web/Landstar.Metro.Web/ClientApp"
-alias project="cd projects/metro_landstar/web"
-
 # Shortcuts
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
@@ -31,6 +26,11 @@ alias gco="git checkout"
 alias gcb="git checkout -b"
 alias gb="git branch"
 alias gba="git branch -a"
+alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches"
+
+# Gradle / Android
+alias dodeps="gradle dependencyUpdates -Drevision=release -DoutputFormatter=json -DreportfileName=myCustomReport"
+alias kk="gradle detekt"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`

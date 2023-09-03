@@ -27,6 +27,8 @@ alias gcb="git checkout -b"
 alias gb="git branch"
 alias gba="git branch -a"
 alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches"
+alias diff_count="git diff --shortstat"
+alias hotspots="git log --format=format: --name-only --since=12.month| egrep -v '^$' | sort | uniq -c | sort -nr | head -50"
 
 # Gradle / Android
 alias dodeps="gradle dependencyUpdates -Drevision=release -DoutputFormatter=json -DreportfileName=myCustomReport"

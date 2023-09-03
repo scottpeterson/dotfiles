@@ -21,4 +21,8 @@ brew bundle
 brew cleanup --force
 rm -f -r /Library/Caches/Homebrew/*
 
+# upgrade all brew
 brew cu --all --cleanup -y -v ; do_all
+
+# set zsh as default shell
+hsh -s /opt/homebrew/bin/zsh

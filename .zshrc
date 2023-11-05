@@ -8,7 +8,19 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ZSH="/Users/scottpeterson/.oh-my-zsh"
 
 # Homebrew path setting
-export PATH="/usr/local/sbin:$PATH"
+export PATH=/opt/homebrew/bin:~/.mix/escripts:$PATH
+
+export ANDROID_HOME=~/Library/Android/sdk
+export ANDROID_SDK_ROOT=~/Library/Android/sdk
+
+export NVM_DIR=~/.nvm
+ [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# # Path for Gradle Wrapper
+# export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/Contents/Home
+
+# asdf Path
+. $HOME/.asdf/asdf.sh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -74,7 +86,7 @@ ZSH_THEME="bullet-train"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git node bundler osx rake ruby python zsh-autosuggestions)
+plugins=(git node bundler macos rake ruby python zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 

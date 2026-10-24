@@ -6,6 +6,17 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: Old-Mac leftovers moved out of /Library
+
+Moved 34 items (1.4 GB) to the holding folder `/private/var/tmp/usr-local-removed-20261024-181442`. Each keeps its original path inside it, so `/Library/Extensions/SoftRAID.kext` is now at `<holding folder>/Library/Extensions/SoftRAID.kext`.
+
+- **File-system drivers** in `/Library/Filesystems`: `box.fs`, `fusefs.fs`, `kddfuse.fs`, `osxfuse.fs`, `ufsd_NTFS.fs` (Intel, 2022).
+- **Kernel extensions** in `/Library/Extensions`: Canon `BJUSBLoad` and `CIJUSBLoad`; HP `hp_fax_io`, `hp_Inkjet3_io_enabler`, `hp_Inkjet8_io_enabler`, `hp_io_enabler_compound`; `jawbone`, `NikeSportWatch`, `JMicronATA`, `SiLabsUSBDriver`, `SoftRAID`, `Tether`, `Tether64`. None were loaded. The HP OfficeJet Pro 8720 prints and faxes over IPP (AirPrint), which doesn't use these.
+- **Support folders** in `/Library/Application Support` for apps that aren't installed: `iDVD` (770 MB), `Logitech.localized` (252 MB), `iWork '09`, `iLifeSlideshow`, `Logic` (GarageBand content), `WDDesktop.app`, `Adobe` (Flash and Shockwave).
+- **Helper tools** in `/Library/PrivilegedHelperTools`: Charles proxy (its LaunchDaemon was unloaded and moved too), Box Sync bootstrapper and icon helper, `com.docker.socket`, CleanMyMac 3 agent, Office 2011 licensing helper (the current `licensingV2` helper stays), and `Google Drive Icon Helper` (2013, ran as root).
+- **Broken link** `/Library/LaunchDaemons/com.oracle.java.Helper-Tool.plist`, left by the Java plugin removal.
+  - *If a printer, USB device, or app stops working:* move its item back with `sudo mv "<holding folder>/Library/..." "/Library/..."`, then restart.
+
 ## 2026-10-24: Developer caches and old Android SDK versions removed
 
 - **Deleted the JetBrains Toolbox cache** (`~/Library/Caches/JetBrains/Toolbox/download` and `backup`, 4.7 GB): IDE installers, plus the rollback copy of the Android Studio canary installed before 2026-10-12.

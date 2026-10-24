@@ -6,6 +6,16 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: Developer caches and old Android SDK versions removed
+
+- **Deleted the JetBrains Toolbox cache** (`~/Library/Caches/JetBrains/Toolbox/download` and `backup`, 4.7 GB): IDE installers, plus the rollback copy of the Android Studio canary installed before 2026-10-12.
+  - *If the current Android Studio canary breaks:* install an older build from Toolbox's version list or the Android Studio download archive. Toolbox can no longer roll back on its own.
+- **Ran `uv cache prune`:** removed 37,578 unused entries (1.3 GB). Cache now 839 MB. The `d3-bball-npi` and `scripts` venvs still import their packages.
+- **Deleted Android SDK build-tools 30.0.2, 30.0.3, 32.0.0, 33.0.0, 33.0.1, 34.0.0** and **platforms android-30 to android-34** (1.6 GB) from `~/Library/Android/sdk`. Kept: build-tools 35.0.0, 35.0.1, 36.0.0; platforms 35, 36, 37.0. Projects compile against SDK 36 and 37.
+  - *Check so far:* a `todoistFocus` build got through Gradle configuration and found android-36, then stopped on an unrelated issue (its new dependencies need compileSdk 37). A full build has not been confirmed yet.
+  - *If a build reports "Failed to find Build Tools revision X" or "Failed to find target android-N":* install that version from Android Studio > **Settings** > **Languages & Frameworks** > **Android SDK**.
+- **Not changed:** Carbon Copy Cloner's task database (5.4 GB). It belongs to the active backup task; trim it from CCC > **Task History** if needed.
+
 ## 2026-10-24: iOS 26.0 simulator runtime removed
 
 - **Deleted the iOS 26.0 simulator runtime** (8.0 GB, no recorded use) and its 11 simulators, none of which had ever started. iOS 27.0 and 27.1 and their 14 simulators stay.

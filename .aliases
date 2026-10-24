@@ -21,7 +21,6 @@ alias ga="git add"
 alias gs="git status"
 alias gc="git commit -m"
 alias gcma="git commit -a -m"
-alias gp="git pull --ff-only"
 alias gco="git checkout"
 alias gcb="git checkout -b"
 alias gb="git branch"
@@ -66,7 +65,7 @@ alias sudo='sudo '
 alias week='date +%V'
 
 # A bunch of stuff
-alias do_all='update ; brewall ; mu ; cleanup ; emptytrash'
+alias do_all='update ; brewall ; mu ; cleanup'
 
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, and their installed packages
 alias update='sudo softwareupdate -i -a;'
@@ -99,10 +98,8 @@ alias c="tr -d '\n' | pbcopy"
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
-# Empty the Trash on all mounted volumes and the main HDD.
-# Also, clear Apple’s System Logs to improve shell startup speed.
-# Finally, clear download history from quarantine. https://mths.be/bum
-alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
+# Empty the Trash on all mounted volumes and the main disk.
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash"
 
 # Hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"

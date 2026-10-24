@@ -11,6 +11,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # =============================================================================
 # PATH CONFIGURATION (consolidated - order matters, later entries have priority)
 # =============================================================================
+typeset -U PATH path  # drop duplicate PATH entries (macOS already adds /usr/local/bin)
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/opt/openjdk/bin:$PATH"

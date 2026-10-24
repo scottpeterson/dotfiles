@@ -3,7 +3,6 @@
 .aliases
 .gitconfig
 .gitignore_global
-.profile
 .vimrc
 .zprofile
 .zshrc

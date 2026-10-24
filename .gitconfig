@@ -37,7 +37,6 @@
     mnemonicprefix = true
     compactionHeuristic = true
     submodule = log
-	external = difft
 
 [log]
     decorate = full
@@ -192,9 +191,11 @@
     supdate = submodule update --remote --merge
 
     permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
-	ddiff = diff --ext-diff
-	dlog = log --ext-diff -p
-	dshow = show --ext-diff
+
+    # difftastic, on request only (plain `git diff` stays a patch)
+    ddiff = -c diff.external=difft diff
+    dlog  = -c diff.external=difft log -p --ext-diff
+    dshow = -c diff.external=difft show --ext-diff
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
@@ -202,12 +203,6 @@
 	smudge = git-lfs smudge -- %f
 [credential]
 	helper = osxkeychain
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [init]
 	defaultBranch = main
 [rerere]

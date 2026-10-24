@@ -6,6 +6,12 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: Clawdbot workspace trashed, HP Product Research off
+
+- **Moved `~/clawd` to the Trash.** Clawdbot's agent files (44 KB), unchanged since 2026-01-06, with nothing running from them. Recoverable until you empty the Trash.
+- **Turned off HP Product Research** (HP's usage-data collection). Unloaded it and renamed `~/Library/LaunchAgents/com.hp.productresearch.plist` to `.plist.disabled`. Printing and HP Device Monitor (`com.hp.devicemonitor`) keep running.
+  - *To undo:* rename the file back without `.disabled`, then log out and back in.
+
 ## 2026-10-24: Telegram uninstalled
 
 - **Moved Telegram to the Trash** (direct download, not App Store or Homebrew; used only for Clawdbot), along with its data: `~/Library/Group Containers/6N38VWS5BX.ru.keepcoder.Telegram` (232 MB local cache), `Containers/ru.keepcoder.Telegram.TelegramShare`, and its `Application Support`, `Caches`, `HTTPStorages`, and `Preferences` entries. Chats stay on Telegram's servers.

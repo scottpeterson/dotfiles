@@ -6,6 +6,11 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: iOS 26.0 simulator runtime removed
+
+- **Deleted the iOS 26.0 simulator runtime** (8.0 GB, no recorded use) and its 11 simulators, none of which had ever started. iOS 27.0 and 27.1 and their 14 simulators stay.
+  - *To get iOS 26 back:* Xcode > **Settings** > **Components**, then download iOS 26.0.
+
 ## 2026-10-24: Clawdbot workspace trashed, HP Product Research off
 
 - **Moved `~/clawd` to the Trash.** Clawdbot's agent files (44 KB), unchanged since 2026-01-06, with nothing running from them. Recoverable until you empty the Trash.

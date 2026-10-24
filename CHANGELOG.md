@@ -6,6 +6,13 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: Home-folder clutter deleted
+
+No backup; none of these held settings.
+
+- **Deleted** two `~/.claude.json.tmp.*` files (leftovers from unfinished Claude Code saves in September; `~/.claude.json` itself is untouched), `~/.pgAdmin4.startup.log` (2019), `~/.yarnrc` (an update-check timestamp only), the empty `~/.config/mpv`, and `~/.bash_history` (last written July 2024).
+  - *You might notice:* old bash commands are gone from history. zsh history (`~/.zsh_history`) is untouched.
+
 ## 2026-10-24: Git aliases trimmed
 
 Backup: `~/.dotfiles_backup/20261024-182057/.gitconfig`

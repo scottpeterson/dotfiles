@@ -8,3 +8,4 @@
 .zshrc
 .config/ghostty/config
 .config/starship.toml
+.config/git/attributes

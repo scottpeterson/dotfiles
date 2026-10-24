@@ -27,3 +27,16 @@ git clone https://github.com/scottpeterson/dotfiles.git ~/projects/dotfiles
 `all_brew.bash` installs Homebrew if needed, installs the Brewfile, upgrades casks, runs `./dotfiles.sh install`, and sets Homebrew's zsh as the login shell.
 
 The shell config expects oh-my-zsh with the `bullet-train` theme and the `zsh-autosuggestions` plugin. Install those before you open a new shell.
+
+## Machine-specific settings
+
+Settings that should stay off GitHub go in two untracked files on each machine:
+
+- `~/.zshrc.local`: sourced at the end of `.zshrc`. Holds private paths and per-project hooks.
+- `~/.gitconfig.local`: included at the end of `.gitconfig`. Holds `user.email`.
+
+On a new machine, create `~/.gitconfig.local` with your email before you commit:
+
+```sh
+git config --file ~/.gitconfig.local user.email "you@example.com"
+```

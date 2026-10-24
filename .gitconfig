@@ -1,6 +1,5 @@
 [user]
 	name = Scott Peterson
-	email = scott.peterson4@gmail.com
 
 [color]
     ui     = true
@@ -217,3 +216,5 @@
 [merge "mergiraf"]
 	driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L
 	name = mergiraf
+[include]
+	path = ~/.gitconfig.local

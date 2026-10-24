@@ -61,7 +61,6 @@ sdk() {
 # ENVIRONMENT
 # =============================================================================
 [[ -s "$HOME/.local/bin/env" ]] && . "$HOME/.local/bin/env"
-export GOOGLE_APPLICATION_CREDENTIALS="/Users/scottpeterson/article-to-overcast-d5853d7d1ca9.json"
 
 # SSH keys: Removed - macOS Keychain handles this automatically via ~/.ssh/config
 # Add "AddKeysToAgent yes" and "UseKeychain yes" to ~/.ssh/config instead
@@ -73,14 +72,6 @@ export GOOGLE_APPLICATION_CREDENTIALS="/Users/scottpeterson/article-to-overcast-
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# >>> jarvis env auto-load >>>
-# any shell opened inside projects/jarvis auto-loads its .env
-_jarvis_load_env() {
-  if [[ "$PWD" == "$HOME/projects/jarvis"* && -f "$HOME/projects/jarvis/.env" ]]; then
-    set -a; source "$HOME/projects/jarvis/.env"; set +a
-  fi
-}
-autoload -Uz add-zsh-hook
-add-zsh-hook chpwd _jarvis_load_env
-_jarvis_load_env
-# <<< jarvis env auto-load <<<
+
+# Machine-specific settings that stay out of the dotfiles repo
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

@@ -6,6 +6,12 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: Google Docs, Sheets, and Slides shortcut apps trashed
+
+- **Moved `Google Docs.app`, `Google Sheets.app`, and `Google Slides.app` to the Trash** (about 300 KB, installed 2022-06-07 by Google Drive, which is no longer installed). The web versions in a browser are unaffected.
+  - *To undo before you empty the Trash:* put them back from the Trash. Afterward, installing Google Drive for desktop adds them again.
+- **Kept after review:** Microsoft Word, Plex, 1Blocker, Soulver 3, Portal Beta, and Trimmy.
+
 ## 2026-10-24: Old-Mac leftovers moved out of /Library
 
 Moved 34 items (1.4 GB) to the holding folder `/private/var/tmp/usr-local-removed-20261024-181442`. Each keeps its original path inside it, so `/Library/Extensions/SoftRAID.kext` is now at `<holding folder>/Library/Extensions/SoftRAID.kext`.

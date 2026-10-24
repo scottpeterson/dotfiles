@@ -49,12 +49,12 @@ brew "scrcpy"
 brew "speedtest-cli"
 # SQLite extension providing 256-bit AES encryption
 brew "sqlcipher"
+# Cross-shell prompt for astronauts
+brew "starship"
 # Programmatically correct mistyped console commands
 brew "thefuck"
 # Feature-rich command-line audio/video downloader
 brew "yt-dlp"
-# UNIX shell (command interpreter)
-brew "zsh"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # Android SDK component
@@ -71,8 +71,6 @@ cask "elgato-stream-deck"
 cask "fantastical"
 # Collaborative team software
 cask "figma"
-# Utility for customizing which browser to start
-cask "finicky"
 # Web browser
 cask "firefox"
 # Terminal emulator that uses platform-native UI and GPU acceleration

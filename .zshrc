@@ -25,8 +25,8 @@ export ANDROID_SDK_ROOT=~/Library/Android/sdk
 # =============================================================================
 export ZSH="/Users/scottpeterson/.oh-my-zsh"
 
-# Theme - bullet-train is fancy but slower; consider "robbyrussell" for speed
-ZSH_THEME="bullet-train"
+# No oh-my-zsh theme: Starship draws the prompt (see below and ~/.config/starship.toml)
+ZSH_THEME=""
 
 # Plugins - removed rarely-used ones (bundler, rake, ruby, python, node)
 # These add completion/aliases you likely don't use and slow startup
@@ -39,6 +39,9 @@ source $ZSH/oh-my-zsh.sh
 # =============================================================================
 source ~/.aliases
 
+# Prompt
+eval "$(starship init zsh)"
+
 # =============================================================================
 # LAZY-LOADED TOOLS (only load when first used)
 # =============================================================================
@@ -48,14 +51,6 @@ fuck() {
     unset -f fuck
     eval $(thefuck --alias)
     fuck "$@"
-}
-
-# SDKMAN - lazy load (saves ~50ms per shell)
-export SDKMAN_DIR="$HOME/.sdkman"
-sdk() {
-    unset -f sdk
-    [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-    sdk "$@"
 }
 
 # =============================================================================

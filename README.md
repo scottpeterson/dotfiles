@@ -28,9 +28,9 @@ git clone https://github.com/scottpeterson/dotfiles.git ~/projects/dotfiles
 ~/projects/dotfiles/all_brew.bash
 ```
 
-`all_brew.bash` installs Homebrew if needed, installs the Brewfile, upgrades casks, runs `./dotfiles.sh install`, and sets Homebrew's zsh as the login shell.
+`all_brew.bash` installs Homebrew if needed, installs the Brewfile, upgrades casks, and runs `./dotfiles.sh install`. The login shell stays macOS's `/bin/zsh`.
 
-The shell config expects oh-my-zsh with the `bullet-train` theme and the `zsh-autosuggestions` plugin. Install those before you open a new shell.
+The shell config expects oh-my-zsh with the `zsh-autosuggestions` plugin. Install those before you open a new shell. [Starship](https://starship.rs) draws the prompt; the Brewfile installs it, and `.config/starship.toml` configures it. The prompt uses Powerline symbols, so the terminal font must be a Nerd Font (iTerm2 and Ghostty both use MesloLGS Nerd Font).
 
 ## Machine-specific settings
 

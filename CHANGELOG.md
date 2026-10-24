@@ -6,6 +6,48 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: Starship prompt, leftover cleanup, one zsh, no Finicky
+
+Backup: `~/.dotfiles_backup/20261024-175850/` (`.zshrc`, `.aliases`, `.zshrc.bak.jarvis`, `.finicky.js`, `.sdkman/`, `.config/fish/`)
+
+### Prompt: bullet-train replaced by Starship
+
+- **Installed `starship` with Homebrew.** `.zshrc` sets `ZSH_THEME=""` and runs `eval "$(starship init zsh)"` after loading `.aliases`. The new `~/.config/starship.toml` copies bullet-train's layout and colors: time, error status, user@host, folder, git, and command duration, then `$` on the next line.
+- **Why:** bullet-train took about 410 ms to draw each prompt inside a git repo (180 ms of that came from running `node --version` for the Node segment). Starship takes about 24 ms in a repo and 10 ms elsewhere. Shell startup went from about 0.13 s to 0.15 s, because `starship init` adds about 18 ms.
+  - *You might notice:* the Node version segment is gone. The git segment shows `✹` modified, `✚` staged, `✭` untracked, `✖` deleted, `➜` renamed, `═` conflicted, `⚑` stashed, and `⇡`/`⇣` ahead/behind, but no `✔` for a clean tree. A red `✘` segment appears after a command fails, and a green `⚙` segment appears when background jobs are running.
+  - *If arrows or the branch symbol show as boxes or `?`:* the terminal font is not a Nerd Font. iTerm2 and Ghostty both use MesloLGS Nerd Font.
+  - *To check prompt speed:* run `starship timings` inside a repo.
+  - *To go back:* set `ZSH_THEME="bullet-train"` in `.zshrc` and delete the `eval "$(starship init zsh)"` line. The theme file is still in `~/.oh-my-zsh/custom/themes/`.
+
+### Leftovers removed
+
+- **SDKMAN:** removed the `sdk` lazy-load block from `.zshrc` and deleted `~/.sdkman`. No SDKs were installed through it.
+  - *You might notice:* `sdk` is no longer a command.
+- **Fish:** deleted `~/.config/fish/`. Fish was not installed; the folder held only a uv hook.
+- **Old backup:** deleted `~/.zshrc.bak.jarvis` (June 2026).
+- **Aliases removed from `.aliases`:**
+  - `dock`, `fig`: Docker is not installed.
+  - `r`: launched Rider, which is not installed. With the alias gone, `r` is zsh's built-in command again, which **reruns your last command**.
+  - `ifactive`: needed `pcregrep`, which is not installed.
+  - `chromekill`: its process pattern no longer matched Chrome's renderer processes.
+  - `bci`: used `brew cask install`, which Homebrew removed. Use `brew install --cask`.
+  - `urlencode`: was Python 2 code; this Mac has no `python` command.
+  - `mergepdf`: the Automator script it called is gone from macOS. Use `qpdf --empty --pages a.pdf b.pdf -- out.pdf`.
+  - `afk`: the `CGSession` tool it called is gone from macOS. Use `pmset displaysleepnow`.
+
+### One zsh
+
+- **Uninstalled Homebrew's zsh (5.9.2)** and removed it from the Brewfile. iTerm2, Ghostty, `zsh` typed at the prompt, and `#!/usr/bin/env zsh` scripts all use macOS's `/bin/zsh` (5.9) now. Homebrew completions still load, because `brew shellenv` in `.zprofile` adds them to `fpath`.
+- **Deleted the `~/.zcompdump-...-5.9.2` completion cache,** which only Homebrew's zsh used.
+- **Removed the `chsh` step from `all_brew.bash`,** so a new Mac keeps `/bin/zsh` as its login shell.
+  - *You might notice:* nothing, unless a script needed a zsh 5.9.2 feature. To get it back, run `brew install zsh`.
+
+### Default browser
+
+- **Uninstalled Finicky** (Homebrew cask), removed it from login items, and deleted `~/.finicky.js`. Its only setting sent every link to Safari.
+- **Set Safari as the default browser** for `http` and `https`.
+  - *You might notice:* links open in Safari directly. To route some links to another browser again, run `brew install --cask finicky` and restore `.finicky.js` from the backup folder.
+
 ## 2026-10-24: Git diff, aliases, and PATH cleanup
 
 Backup: `~/.dotfiles_backup/20261024-175049/` (`.gitconfig`, `.aliases`, `.profile`, `.zprofile`, `.zshrc`)

@@ -7,3 +7,4 @@
 .zprofile
 .zshrc
 .config/ghostty/config
+.config/starship.toml

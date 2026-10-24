@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Set up a new Mac: install Homebrew, install everything in the Brewfile,
-# install the dotfiles, and make Homebrew's zsh the login shell.
+# and install the dotfiles. The login shell stays macOS's /bin/zsh.
 set -euo pipefail
 
 repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -25,9 +25,3 @@ brew cleanup
 
 echo "Installing dotfiles"
 "$repo_dir/dotfiles.sh" install
-
-zsh_path="$(brew --prefix)/bin/zsh"
-if [[ -x "$zsh_path" && "$SHELL" != "$zsh_path" ]]; then
-  grep -qxF "$zsh_path" /etc/shells || echo "$zsh_path" | sudo tee -a /etc/shells >/dev/null
-  chsh -s "$zsh_path"
-fi

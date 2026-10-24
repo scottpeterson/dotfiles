@@ -1,0 +1,79 @@
+# Starship prompt, laid out like the bullet-train oh-my-zsh theme it replaced:
+# time, error status, user@host, folder, git, and command duration on one
+# line, then `$` on the next. Each segment opens with a powerline arrow whose
+# color comes from the segment before it (prev_bg), so segments that only
+# appear sometimes (status, jobs, git, duration) still join up cleanly.
+
+add_newline = true
+
+format = """
+$time\
+$status\
+$jobs\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$cmd_duration\
+[](fg:prev_bg)
+$character"""
+
+[time]
+disabled = false
+time_format = "%T"
+format = "[ $time ](fg:black bg:white)"
+
+[status]
+disabled = false
+symbol = "✘"
+format = "[](fg:prev_bg bg:red)[ $symbol ](fg:white bg:red)"
+
+[jobs]
+symbol = "⚙"
+number_threshold = 2
+format = "[](fg:prev_bg bg:green)[ $symbol$number ](fg:white bg:green)"
+
+[username]
+show_always = true
+format = "[](fg:prev_bg bg:black)[ $user](fg:white bg:black)"
+
+[hostname]
+ssh_only = false
+format = "[@$hostname ](fg:white bg:black)"
+
+[directory]
+truncation_length = 3
+truncate_to_repo = false
+truncation_symbol = ".../"
+read_only = " "
+format = "[](fg:prev_bg bg:blue)[ $path$read_only ](fg:white bg:blue)"
+
+[git_branch]
+symbol = ""
+format = "[](fg:prev_bg bg:white)[ $symbol $branch ](fg:black bg:white)"
+
+[git_state]
+format = "[$state( $progress_current/$progress_total) ](fg:black bg:white)"
+
+[git_status]
+format = "([$all_status$ahead_behind ](fg:red bg:white))"
+conflicted = "═"
+untracked = "✭"
+modified = "✹"
+staged = "✚"
+renamed = "➜"
+deleted = "✖"
+stashed = "⚑"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+
+[cmd_duration]
+min_time = 5_000
+format = "[](fg:prev_bg bg:yellow)[ $duration ](fg:black bg:yellow)"
+
+[character]
+success_symbol = "[\\$](bold green)"
+error_symbol = "[\\$](bold green)"

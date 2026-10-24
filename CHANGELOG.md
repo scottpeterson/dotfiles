@@ -6,6 +6,14 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: Global git ignore fixed
+
+Backup: `~/.dotfiles_backup/20261024-180623/` (`.gitignore_global`, `.config/git/ignore`)
+
+- **Moved `**/.claude/settings.local.json` from `~/.config/git/ignore` into `~/.gitignore_global`, and deleted `~/.config/git/ignore`.** Git reads `~/.config/git/ignore` only when `core.excludesfile` is unset. `.gitconfig` sets it to `~/.gitignore_global`, so the rule never applied, and Claude Code's local permission file got committed in six repos.
+  - *You might notice:* `.claude/settings.local.json` no longer shows as untracked in `git status`. Repos that already committed it keep tracking it until you run `git rm --cached .claude/settings.local.json` in each one.
+  - *Rule of thumb:* put global ignore patterns in `~/.gitignore_global` only.
+
 ## 2026-10-24: Starship prompt, leftover cleanup, one zsh, no Finicky
 
 Backup: `~/.dotfiles_backup/20261024-175850/` (`.zshrc`, `.aliases`, `.zshrc.bak.jarvis`, `.finicky.js`, `.sdkman/`, `.config/fish/`)

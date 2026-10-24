@@ -1,2 +1,5 @@
 *~
 .DS_Store
+
+# Claude Code per-user permission settings
+**/.claude/settings.local.json

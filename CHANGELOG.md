@@ -6,6 +6,14 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: Heroku credentials removed
+
+No backup, on purpose: a backup would keep the credential on disk.
+
+- **Deleted `~/.netrc`.** It held a plain-text Heroku login from 2018 for `api.heroku.com` and `git.heroku.com`, and nothing else. The Heroku CLI never ran on this Mac.
+  - *Still to do on Heroku's site:* revoke the old token at dashboard.heroku.com, under **Account settings** > **API Key** > **Regenerate API Key**.
+  - *You might notice:* `git push heroku` and `heroku login` ask for credentials again, if you ever install the CLI.
+
 ## 2026-10-24: /usr/local cleared of Intel-era leftovers
 
 Holding folder (nothing deleted yet): `/private/var/tmp/usr-local-removed-20261024-181442/` (2.9 GB). Each item keeps its original path inside it, for example `.../usr/local/bin/heroku`.

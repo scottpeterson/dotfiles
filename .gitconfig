@@ -59,9 +59,6 @@
 [apply]
     whitespace = nowarn
 
-[incude]
-    path = ~/.local_gitconfig
-
 [pull]
     rebase = true
     ff = only

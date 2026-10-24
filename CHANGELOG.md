@@ -6,6 +6,12 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: Dead include block removed from .gitconfig
+
+Backup: `~/.dotfiles_backup/20261024-195938/.gitconfig`
+
+- **Removed `[incude] path = ~/.local_gitconfig`.** Git ignored it because `incude` is misspelled, and `~/.local_gitconfig` doesn't exist. The working `[include] path = ~/.gitconfig.local` at the end of the file is unchanged, so git behaves the same.
+
 ## 2026-10-24: Homebrew cache and old Gradle and Kotlin/Native versions removed
 
 - **Ran `brew cleanup --prune=all`:** freed 659 MB of old downloads from `~/Library/Caches/Homebrew`. Installed packages are unchanged.

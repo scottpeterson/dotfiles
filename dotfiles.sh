@@ -54,6 +54,11 @@ cmd_pull() {
     brew bundle dump --force --file="$repo_dir/Brewfile"
     echo "pulled  Brewfile"
   fi
+
+  if [[ -n "$(git -C "$repo_dir" status --porcelain -- . ':!CHANGELOG.md')" ]] &&
+     [[ -z "$(git -C "$repo_dir" status --porcelain -- CHANGELOG.md)" ]]; then
+    echo "Tracked files changed. Add an entry to CHANGELOG.md before you commit."
+  fi
 }
 
 cmd_install() {

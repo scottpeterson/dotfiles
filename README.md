@@ -15,7 +15,11 @@ Shell, git, and terminal configuration for macOS, plus a Brewfile of installed p
 | `./dotfiles.sh pull` | Copies the home files into the repo and regenerates `Brewfile` from installed packages. |
 | `./dotfiles.sh install` | Copies the repo files into `$HOME`. Before it replaces a file, it saves the old copy to `~/.dotfiles_backup/<timestamp>/`. |
 
-To save changes from this machine, run `./dotfiles.sh pull`, review `git diff`, then commit.
+To save changes from this machine, run `./dotfiles.sh pull`, review `git diff`, add an entry to `CHANGELOG.md`, then commit.
+
+## Changelog
+
+`CHANGELOG.md` records each change to the shell, terminal, and git setup, what you might notice because of it, and how to undo it. If something behaves unexpectedly, check it first. `pull` reminds you to add an entry when tracked files changed and the changelog didn't.
 
 ## New machine
 

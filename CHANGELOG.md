@@ -6,6 +6,11 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: Rectangle removed (Rectangle Pro kept)
+
+- **Uninstalled the `rectangle` cask** and removed it from the Brewfile. Rectangle Pro does the same job and is the one that runs at login. macOS had no record of Rectangle being opened.
+  - *You might notice:* nothing. If a window shortcut stops working, set it in Rectangle Pro.
+
 ## 2026-10-24: Heroku credentials removed
 
 No backup, on purpose: a backup would keep the credential on disk.

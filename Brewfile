@@ -101,8 +101,6 @@ cask "obs"
 cask "plex"
 # Control your tools with a few keystrokes
 cask "raycast"
-# Move and resize windows using keyboard shortcuts or snap areas
-cask "rectangle"
 # Window snapping tool
 cask "rectangle-pro"
 # Menu bar dashboard for GitHub repository health

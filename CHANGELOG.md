@@ -6,6 +6,12 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: Empty Google Keystone agents and Maven cache trashed
+
+- **Moved `~/Library/LaunchAgents/com.google.keystone.agent.plist` and `com.google.keystone.xpcservice.plist` to the Trash.** Both were empty 181-byte files from 2023 that started nothing. Chrome updates keep running through `com.google.GoogleUpdater.wake`.
+- **Moved `~/.m2` to the Trash** (193 MB Maven download cache, last written 2025-11-09). Maven isn't installed, and no project in `~/projects` uses `mavenLocal()`.
+  - *If a Gradle or IntelliJ build reports a missing local Maven artifact:* the tool downloads it again on the next build with network access, or you can put `~/.m2` back from the Trash.
+
 ## 2026-10-24: Unused Playwright Chromium build deleted
 
 - **Deleted `chromium-1187` and `chromium_headless_shell-1187`** from `~/Library/Caches/ms-playwright` (475 MB, downloaded 2026-02-09). No installed Playwright uses build 1187. Build 1243 stays for `~/Documents/notes/venv`.

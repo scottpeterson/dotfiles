@@ -6,6 +6,15 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: Homebrew cache and old Gradle and Kotlin/Native versions removed
+
+- **Ran `brew cleanup --prune=all`:** freed 659 MB of old downloads from `~/Library/Caches/Homebrew`. Installed packages are unchanged.
+- **Deleted old Gradle distributions** 7.4.0, 9.1, 9.3.1, 9.5.1, and 9.7.1 from `~/.gradle/wrapper/dists`, plus the version caches `~/.gradle/caches/8.13`, `9.3.1`, and `9.5.1` (3.6 GB). Kept 9.8.1 and the shared `modules-2` dependency cache. Every branch of EloApp and todoistFocus uses 9.8.1.
+  - *If an older project builds:* its wrapper downloads its Gradle version on the first build.
+- **Deleted Kotlin/Native compilers** 1.7.10, 1.8.0, 1.9.25, and 2.3.21 from `~/.konan` (3.5 GB). Kept 2.4.21, which every branch uses, and `~/.konan/dependencies`.
+  - *If a build needs an older Kotlin/Native:* Gradle downloads it on the next build.
+- **Not changed:** `~/Library/Application Support/MDRP` (used by `/Applications/MDRP.app`). It was moved to the Trash by mistake and put back within a minute, unchanged.
+
 ## 2026-10-24: Logitech G HUB driver extensions turned off
 
 - **Turned off `com.logi.ghub.hidfilter` (G HUB HID driver) and `com.logi.ghub.audiooverride` (Blue Voice)** in System Settings > **General** > **Login Items & Extensions** > **Driver Extensions**. G HUB itself was already uninstalled, and no Logitech G device or Blue microphone is in use. macOS removes them at the next restart.

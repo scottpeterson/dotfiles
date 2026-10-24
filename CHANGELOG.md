@@ -13,6 +13,7 @@ Backup: `~/.dotfiles_backup/20261024-180623/` (`.gitignore_global`, `.config/git
 - **Moved `**/.claude/settings.local.json` from `~/.config/git/ignore` into `~/.gitignore_global`, and deleted `~/.config/git/ignore`.** Git reads `~/.config/git/ignore` only when `core.excludesfile` is unset. `.gitconfig` sets it to `~/.gitignore_global`, so the rule never applied, and Claude Code's local permission file got committed in six repos.
   - *You might notice:* `.claude/settings.local.json` no longer shows as untracked in `git status`. Repos that already committed it keep tracking it until you run `git rm --cached .claude/settings.local.json` in each one.
   - *Rule of thumb:* put global ignore patterns in `~/.gitignore_global` only.
+- **Untracked every committed `.claude/settings.local.json`** (the files stay on disk, so Claude Code keeps its permissions): `scottpeterson.github.io`, `d3-bball-npi` (2 files), `leverage-matrix`, `obs-notes` (6 files), `EloApp` (on branch `kmp-migration`), and `notes`. Pushed everywhere except `notes`. In `notes`, the commit is local only: your earlier unpushed commit `36bec36` conflicts with 22 newer remote commits in `wbb_stats_sidearm.py`, so the push waits until you resolve that.
 
 ## 2026-10-24: Starship prompt, leftover cleanup, one zsh, no Finicky
 

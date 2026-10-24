@@ -1,6 +1,6 @@
 [user]
-	name  = Scott Peterson
-	email = speterson@michiganlabs.com
+	name = Scott Peterson
+	email = scott.peterson4@gmail.com
 
 [color]
     ui     = true
@@ -29,8 +29,7 @@
 [core]
     autocrlf    = false
     editor = vim
-    excludesfile = /Users/scottpeterson/.gitignore_global
-    commentchar = auto
+	excludesfile = /Users/scottpeterson/.gitignore_global
     whitespace  = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 
 [diff]
@@ -39,6 +38,7 @@
     mnemonicprefix = true
     compactionHeuristic = true
     submodule = log
+	external = difft
 
 [log]
     decorate = full
@@ -56,7 +56,7 @@
     summary   = true
     verbosity = 1
     ff        = false
-    conflictstyle = diff3
+	conflictStyle = diff3
 
 [apply]
     whitespace = nowarn
@@ -193,8 +193,27 @@
     supdate = submodule update --remote --merge
 
     permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
+	ddiff = diff --ext-diff
+	dlog = log --ext-diff -p
+	dshow = show --ext-diff
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[credential]
+	helper = osxkeychain
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[init]
+	defaultBranch = main
+[rerere]
+	enabled = true
+	autoUpdate = true
+[merge "mergiraf"]
+	driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L
+	name = mergiraf

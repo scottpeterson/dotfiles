@@ -1,125 +1,167 @@
-tap "buo/cask-upgrade"
-tap "homebrew/bundle"
-tap "homebrew/services"
-tap "jesseduffield/lazygit"
-tap "sambadevi/powerlevel9k"
-brew "ack"
+tap "buo/cask-upgrade", trusted: true
+tap "iilonmasc/powerlevel9k", "https://github.com/iilonmasc/homebrew-powerlevel9k.git", trusted: true
+tap "pluk-inc/tap"
+tap "steipete/tap"
+tap "tw93/tap", trusted: { formulae: ["mole"] }
+# Code searching, linting, rewriting
+brew "ast-grep"
+# Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
+# Command-line interface for SQLite
 brew "sqlite"
-brew "cocoapods"
+# Diff that understands syntax
+brew "difftastic"
+# Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
-brew "flyctl"
+# GitHub command-line tool
 brew "gh"
+# Distributed revision control system
 brew "git"
-brew "git-lfs"
-brew "gradle"
+# GNU grep, egrep and fgrep
 brew "grep"
-brew "jadx"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Library to communicate with iOS devices natively
+brew "libimobiledevice"
+# Mac App Store command-line interface
 brew "mas"
-brew "mysql"
-brew "mysql-client"
-brew "neovim"
+# Syntax-aware git merge driver
+brew "mergiraf"
+# Deep clean and optimize your Mac
+brew "mole"
+# Open-source, cross-platform JavaScript runtime environment
 brew "node"
-brew "numpy"
-brew "perl"
+# Development kit for the Java programming language
+brew "openjdk"
+# Development kit for the Java programming language
+brew "openjdk@21"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# Execute binaries from Python packages in isolated environments
+brew "pipx"
+# PDF rendering library (based on the xpdf-3.0 code base)
+brew "poppler"
+# Tools for and transforming and inspecting PDF files
+brew "qpdf"
+# Display and control your Android device
 brew "scrcpy"
+# Command-line interface for https://speedtest.net bandwidth tests
 brew "speedtest-cli"
-brew "the_silver_searcher"
+# SQLite extension providing 256-bit AES encryption
+brew "sqlcipher"
+# Programmatically correct mistyped console commands
 brew "thefuck"
-brew "tree"
-brew "watch"
-brew "watchman"
-brew "wget"
-brew "youtube-dl"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
+# UNIX shell (command interpreter)
 brew "zsh"
-brew "jesseduffield/lazygit/lazygit"
+# Password manager that keeps all passwords secure behind one password
 cask "1password"
-cask "airbuddy"
-cask "alfred"
+# Android SDK component
 cask "android-platform-tools"
+# Memory training application
 cask "anki"
-cask "asana"
-cask "ballast"
-cask "clocker"
-cask "cron"
-cask "discord"
+# Web browser focusing on privacy
+cask "brave-browser"
+# Menu bar usage monitor for Codex and Claude
+cask "steipete/tap/codexbar", trusted: true
+# Assign keys, and then decorate and label them
+cask "elgato-stream-deck"
+# Calendar software
 cask "fantastical"
+# Collaborative team software
 cask "figma"
+# Utility for customizing which browser to start
 cask "finicky"
+# Web browser
 cask "firefox"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Web browser
 cask "google-chrome"
-cask "grammarly-desktop"
+# Automated organisation
 cask "hazel"
-cask "hazeover"
-cask "hiddenbar"
-cask "istat-menus"
-cask "livebook"
+# Set up your HP printer
+cask "hp-easy-start"
+# JetBrains tools manager
+cask "jetbrains-toolbox"
+# App to manage software development and track bugs
+cask "linear"
+# Track and update to the latest versions of installed software
+cask "macupdater"
+# Markdown previewer with bundled Quick Look extension
+cask "pluk-inc/tap/markdown-preview", trusted: true
+# Utility to rip and copy DVD content
+cask "mdrp"
+# Provides updates to various Microsoft products
 cask "microsoft-auto-update"
-cask "microsoft-excel"
-cask "microsoft-teams"
+# Word processor
 cask "microsoft-word"
-cask "missive"
-cask "netnewswire"
-cask "ngrok"
-cask "notion"
-cask "obsidian"
+# Open-source software for live streaming and screen recording
+cask "obs"
+# Home media player
 cask "plex"
-cask "rapidapi"
+# Control your tools with a few keystrokes
 cask "raycast"
-cask "readdle-spark"
+# Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
-cask "skype"
+# Window snapping tool
+cask "rectangle-pro"
+# Menu bar dashboard for GitHub repository health
+cask "steipete/tap/repobar", trusted: true
+# Team communication and collaboration software
 cask "slack"
+# Notepad with a built-in calculator
 cask "soulver"
-cask "sourcetree"
-cask "spotify"
+# Video game digital distribution service
 cask "steam"
-cask "superlist"
+# Menu bar manager
+cask "thaw"
+# Paste-once, run-once clipboard cleaner for terminal snippets
+cask "steipete/tap/trimmy", trusted: true
+# Open-source code editor
 cask "visual-studio-code"
+# Native desktop client for WhatsApp
+cask "whatsapp"
+# Video communication and virtual meeting platform
 cask "zoom"
+mas "1Blocker", id: 1365531024
 mas "1Password for Safari", id: 1569813296
 mas "Amphetamine", id: 937984704
 mas "Bear", id: 1091189122
-mas "EjectBar", id: 1495357828
-mas "Hand Mirror", id: 1502839586
-mas "Harvest", id: 506189836
+mas "Calico mini", id: 0
+mas "HP", id: 1474276998
+mas "Lettera", id: 0
 mas "Paprika Recipe Manager 3", id: 1303222628
-mas "Play", id: 1596506190
+mas "Portal Beta", id: 0
+mas "Save to Reader", id: 1640236961
 mas "TestFlight", id: 899247664
 mas "Things", id: 904280696
 mas "Todoist", id: 585829637
-mas "WireGuard", id: 1451685025
-mas "Xcode", id: 497799835
-vscode "aliariff.vscode-erb-beautify"
 vscode "bceskavich.theme-dracula-at-night"
-vscode "DavidAnson.vscode-markdownlint"
+vscode "davidanson.vscode-markdownlint"
 vscode "dbaeumer.vscode-eslint"
-vscode "donjayamanne.githistory"
 vscode "eamodio.gitlens"
-vscode "earshinov.permute-lines"
 vscode "esbenp.prettier-vscode"
 vscode "fwcd.kotlin"
 vscode "isudox.vscode-jetbrains-keybindings"
-vscode "JakeBecker.elixir-ls"
-vscode "kaiwood.better-line-select"
-vscode "mathiasfrohlich.Kotlin"
-vscode "mikoz.black-py"
-vscode "mjmcloug.vscode-elixir"
+vscode "ms-azuretools.vscode-containers"
 vscode "ms-azuretools.vscode-docker"
-vscode "ms-dotnettools.csharp"
-vscode "ms-dotnettools.vscode-dotnet-runtime"
 vscode "ms-python.black-formatter"
+vscode "ms-python.debugpy"
 vscode "ms-python.isort"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
-vscode "ms-toolsai.jupyter"
-vscode "ms-toolsai.jupyter-keymap"
+vscode "ms-python.vscode-python-envs"
 vscode "oderwat.indent-rainbow"
-vscode "phoenixframework.phoenix"
-vscode "PKief.material-icon-theme"
-vscode "ritvyk.heex-html"
-vscode "RobbOwen.synthwave-vscode"
+vscode "pkief.material-icon-theme"
 vscode "streetsidesoftware.code-spell-checker"
-vscode "TabNine.tabnine-vscode"
-vscode "wesbos.theme-cobalt2"
-vscode "ZainChen.json"
+vscode "tomoki1207.pdf"
+vscode "zainchen.json"
+npm "@google/gemini-cli"
+npm "@googleworkspace/cli"
+npm "@openai/codex"
+npm "@readwise/cli"
+npm "@steipete/summarize"
+npm "create-compose-app"
+npm "pnpm"

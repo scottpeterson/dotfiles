@@ -1,120 +1,86 @@
-source ~/.bash_profile
-eval $(thefuck --alias)
+# =============================================================================
+# PERFORMANCE OPTIMIZATIONS
+# =============================================================================
 
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Disable oh-my-zsh auto-update check (saves ~70ms) - run `omz update` manually
+DISABLE_AUTO_UPDATE="true"
 
-# Path to your oh-my-zsh installation.
-export ZSH="/Users/scottpeterson/.oh-my-zsh"
+# Disable untracked files check in git (faster prompt in large repos)
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Homebrew path setting
-export PATH=/opt/homebrew/bin:~/.mix/escripts:$PATH
+# =============================================================================
+# PATH CONFIGURATION (consolidated - order matters, later entries have priority)
+# =============================================================================
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
+# Android SDK
 export ANDROID_HOME=~/Library/Android/sdk
 export ANDROID_SDK_ROOT=~/Library/Android/sdk
 
-export NVM_DIR=~/.nvm
- [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+# =============================================================================
+# OH-MY-ZSH CONFIGURATION
+# =============================================================================
+export ZSH="/Users/scottpeterson/.oh-my-zsh"
 
-# # Path for Gradle Wrapper
-# export JAVA_HOME=/Applications/Android\ Studio.app/Contents/jre/Contents/Home
-
-# asdf Path
-. $HOME/.asdf/asdf.sh
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# Theme - bullet-train is fancy but slower; consider "robbyrussell" for speed
 ZSH_THEME="bullet-train"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git node bundler macos rake ruby python zsh-autosuggestions)
+# Plugins - removed rarely-used ones (bundler, rake, ruby, python, node)
+# These add completion/aliases you likely don't use and slow startup
+plugins=(git macos zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# =============================================================================
+# ALIASES
+# =============================================================================
+source ~/.aliases
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# =============================================================================
+# LAZY-LOADED TOOLS (only load when first used)
+# =============================================================================
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# thefuck - lazy load (saves ~110ms per shell)
+fuck() {
+    unset -f fuck
+    eval $(thefuck --alias)
+    fuck "$@"
+}
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+# SDKMAN - lazy load (saves ~50ms per shell)
+export SDKMAN_DIR="$HOME/.sdkman"
+sdk() {
+    unset -f sdk
+    [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+    sdk "$@"
+}
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# =============================================================================
+# ENVIRONMENT
+# =============================================================================
+[[ -s "$HOME/.local/bin/env" ]] && . "$HOME/.local/bin/env"
+export GOOGLE_APPLICATION_CREDENTIALS="/Users/scottpeterson/article-to-overcast-d5853d7d1ca9.json"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# SSH keys: Removed - macOS Keychain handles this automatically via ~/.ssh/config
+# Add "AddKeysToAgent yes" and "UseKeychain yes" to ~/.ssh/config instead
 
-# Thanks to https://www.growingwiththeweb.com/2018/01/slow-nvm-init.html, modified 
-# for zsh as "type -t" works in bash but not zsh
+# bun completions
+[ -s "/Users/scottpeterson/.bun/_bun" ] && source "/Users/scottpeterson/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# >>> jarvis env auto-load >>>
+# any shell opened inside projects/jarvis auto-loads its .env
+_jarvis_load_env() {
+  if [[ "$PWD" == "$HOME/projects/jarvis"* && -f "$HOME/projects/jarvis/.env" ]]; then
+    set -a; source "$HOME/projects/jarvis/.env"; set +a
+  fi
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook chpwd _jarvis_load_env
+_jarvis_load_env
+# <<< jarvis env auto-load <<<

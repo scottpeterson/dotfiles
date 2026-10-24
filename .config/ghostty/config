@@ -1,0 +1,70 @@
+# Ghostty config — mirrored from iTerm2 Default profile
+
+# Font (Meslo LG S for Powerline, size 13)
+font-family = MesloLGS Nerd Font
+font-size = 13
+font-feature = liga
+font-feature = calt
+
+# Cursor
+cursor-color = #bbbbbb
+cursor-text = #ffffff
+cursor-style = block
+cursor-style-blink = false
+
+# Window
+window-padding-x = 2
+window-padding-y = 2
+window-decoration = true
+
+# Scrollback
+scrollback-limit = 50000
+
+# Bell
+# Bell: macOS doesn't support visual-only bell in Ghostty
+# Default features (attention + title) are the closest match
+
+# Background / Foreground
+background = #000000
+foreground = #bbbbbb
+bold-is-bright = true
+
+# Selection
+selection-background = #b5d5ff
+selection-foreground = #000000
+
+# ANSI palette (matching iTerm2 VGA colors)
+# Black
+palette = 0=#000000
+palette = 8=#555555
+
+# Red
+palette = 1=#bb0000
+palette = 9=#ff5555
+
+# Green
+palette = 2=#00bb00
+palette = 10=#55ff55
+
+# Yellow
+palette = 3=#bbbb00
+palette = 11=#ffff55
+
+# Blue
+palette = 4=#0000bb
+palette = 12=#5555ff
+
+# Magenta
+palette = 5=#bb00bb
+palette = 13=#ff55ff
+
+# Cyan
+palette = 6=#00bbbb
+palette = 14=#55ffff
+
+# White
+palette = 7=#bbbbbb
+palette = 15=#ffffff
+
+# Shell integration
+shell-integration = zsh

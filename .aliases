@@ -26,13 +26,10 @@ alias gco="git checkout"
 alias gcb="git checkout -b"
 alias gb="git branch"
 alias gba="git branch -a"
-alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches"
-alias diff_count="git diff --shortstat"
-alias hotspots="git log --format=format: --name-only --since=12.month| egrep -v '^$' | sort | uniq -c | sort -nr | head -50"
 
 # Gradle / Android
-alias dodeps="gradle dependencyUpdates -Drevision=release -DoutputFormatter=json -DreportfileName=myCustomReport"
-alias kk="gradle detekt"
+alias dodeps="./gradlew dependencyUpdates -Drevision=release -DoutputFormatter=json -DreportfileName=myCustomReport"
+alias kk="./gradlew detekt"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -134,3 +131,19 @@ alias reload="exec ${SHELL} -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+# Claude Code: common misspellings of `claude`
+alias calude='claude'   # transposed a/l
+alias cluade='claude'   # transposed a/u
+alias cladue='claude'   # transposed u/d
+alias claued='claude'   # transposed d/e
+alias lcaude='claude'   # transposed c/l
+alias claud='claude'    # dropped e
+alias claue='claude'    # dropped d
+alias clade='claude'    # dropped u
+alias clude='claude'    # dropped a
+alias caude='claude'    # dropped l
+alias claudee='claude'  # doubled e
+alias claudr='claude'   # e -> r (adjacent key)
+alias claide='claude'   # u -> i (adjacent key)
+alias clsude='claude'   # a -> s (adjacent key)
+alias clasue='claude'   # transposed u/s after a->s

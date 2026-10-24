@@ -1,27 +1,33 @@
-#!/bin/sh
+#!/usr/bin/env bash
+# Set up a new Mac: install Homebrew, install everything in the Brewfile,
+# install the dotfiles, and make Homebrew's zsh the login shell.
+set -euo pipefail
 
-echo Install and Set San Francisco as System Font
-ruby -e "$(curl -fsSL https://raw.github.com/wellsriley/YosemiteSanFranciscoFont/master/install)"
+repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if ! command -v brew >/dev/null 2>&1; then
+  echo "Installing Homebrew"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
-echo Homebrew Maintenance
-brew doctor
+echo "Updating Homebrew"
 brew update
-brew outdated
 brew upgrade
-brew install brew-cask
 
-echo Allllll the installs
-brew bundle
+echo "Installing Brewfile packages"
+brew bundle --file="$repo_dir/Brewfile"
 
-# cleanup
-brew cleanup --force
-rm -f -r /Library/Caches/Homebrew/*
+echo "Upgrading casks"
+brew cu --all --yes --cleanup
 
-# upgrade all brew
-brew cu --all --cleanup -y -v ; do_all
+brew cleanup
 
-# set zsh as default shell
-hsh -s /opt/homebrew/bin/zsh
+echo "Installing dotfiles"
+"$repo_dir/dotfiles.sh" install
+
+zsh_path="$(brew --prefix)/bin/zsh"
+if [[ -x "$zsh_path" && "$SHELL" != "$zsh_path" ]]; then
+  grep -qxF "$zsh_path" /etc/shells || echo "$zsh_path" | sudo tee -a /etc/shells >/dev/null
+  chsh -s "$zsh_path"
+fi

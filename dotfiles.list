@@ -1,0 +1,10 @@
+# Files this repo tracks. One path per line, relative to both the repo root
+# and $HOME. dotfiles.sh reads this list for pull, diff, and install.
+.aliases
+.gitconfig
+.gitignore_global
+.profile
+.vimrc
+.zprofile
+.zshrc
+.config/ghostty/config

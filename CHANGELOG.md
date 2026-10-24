@@ -6,6 +6,11 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: Logitech G HUB driver extensions turned off
+
+- **Turned off `com.logi.ghub.hidfilter` (G HUB HID driver) and `com.logi.ghub.audiooverride` (Blue Voice)** in System Settings > **General** > **Login Items & Extensions** > **Driver Extensions**. G HUB itself was already uninstalled, and no Logitech G device or Blue microphone is in use. macOS removes them at the next restart.
+  - *If a Logitech mouse, keyboard, or Blue microphone stops working:* install G HUB from logitech.com, which installs both extensions again.
+
 ## 2026-10-24: Empty Google Keystone agents and Maven cache trashed
 
 - **Moved `~/Library/LaunchAgents/com.google.keystone.agent.plist` and `com.google.keystone.xpcservice.plist` to the Trash.** Both were empty 181-byte files from 2023 that started nothing. Chrome updates keep running through `com.google.GoogleUpdater.wake`.

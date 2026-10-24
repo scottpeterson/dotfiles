@@ -6,6 +6,12 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: Telegram uninstalled
+
+- **Moved Telegram to the Trash** (direct download, not App Store or Homebrew; used only for Clawdbot), along with its data: `~/Library/Group Containers/6N38VWS5BX.ru.keepcoder.Telegram` (232 MB local cache), `Containers/ru.keepcoder.Telegram.TelegramShare`, and its `Application Support`, `Caches`, `HTTPStorages`, and `Preferences` entries. Chats stay on Telegram's servers.
+  - *To undo before you empty the Trash:* put the items back from the Trash. Afterward, reinstall from telegram.org and sign in.
+  - Two empty sandbox folders remain in `~/Library/Application Scripts`; macOS manages them.
+
 ## 2026-10-24: Two PATH lines removed from .zshrc
 
 Backup: `~/.dotfiles_backup/20261024-182308/.zshrc`

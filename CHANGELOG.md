@@ -9,7 +9,7 @@ When you change a tracked file, add an entry here in the same commit.
 ## 2026-10-24: Git attributes tracked
 
 - **Added `.config/git/attributes` to `dotfiles.list`.** It holds `* merge=mergiraf`, which tells git to use the mergiraf merge driver defined in `.gitconfig` for every file. No change on this Mac; a new Mac now gets the driver turned on by `./dotfiles.sh install`.
-  - *If a merge behaves unexpectedly:* mergiraf resolves conflicts by syntax. To merge one time without it, run `git -c merge.mergiraf.driver=false merge ...`, or delete the line from `~/.config/git/attributes`.
+  - *If a merge behaves unexpectedly:* mergiraf resolves conflicts by syntax. To turn it off for one repo, add `* merge=text` to that repo's `.git/info/attributes` (git's built-in merge). To turn it off everywhere, delete the line from `~/.config/git/attributes`.
 
 ## 2026-10-24: Global git ignore fixed
 

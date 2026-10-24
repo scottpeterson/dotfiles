@@ -6,6 +6,12 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: Unused Playwright Chromium build deleted
+
+- **Deleted `chromium-1187` and `chromium_headless_shell-1187`** from `~/Library/Caches/ms-playwright` (475 MB, downloaded 2026-02-09). No installed Playwright uses build 1187. Build 1243 stays for `~/Documents/notes/venv`.
+  - *If a script reports "Executable doesn't exist" for Chromium:* run `playwright install chromium` from that project's venv.
+  - `~/projects/d3-bball-npi/.venv` uses build 1248, which isn't downloaded. Run `playwright install chromium` there before running it locally.
+
 ## 2026-10-24: Google Docs, Sheets, and Slides shortcut apps trashed
 
 - **Moved `Google Docs.app`, `Google Sheets.app`, and `Google Slides.app` to the Trash** (about 300 KB, installed 2022-06-07 by Google Drive, which is no longer installed). The web versions in a browser are unaffected.

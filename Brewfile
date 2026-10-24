@@ -19,10 +19,6 @@ brew "gh"
 brew "git"
 # GNU grep, egrep and fgrep
 brew "grep"
-# Simple terminal UI for git commands
-brew "lazygit"
-# Library to communicate with iOS devices natively
-brew "libimobiledevice"
 # Mac App Store command-line interface
 brew "mas"
 # Syntax-aware git merge driver
@@ -41,14 +37,12 @@ brew "openssl@3"
 brew "pipx"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.14"
 # Tools for and transforming and inspecting PDF files
 brew "qpdf"
 # Display and control your Android device
 brew "scrcpy"
-# Command-line interface for https://speedtest.net bandwidth tests
-brew "speedtest-cli"
-# SQLite extension providing 256-bit AES encryption
-brew "sqlcipher"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Programmatically correct mistyped console commands
@@ -79,8 +73,6 @@ cask "ghostty"
 cask "google-chrome"
 # Automated organisation
 cask "hazel"
-# Set up your HP printer
-cask "hp-easy-start"
 # JetBrains tools manager
 cask "jetbrains-toolbox"
 # App to manage software development and track bugs

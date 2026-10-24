@@ -6,6 +6,18 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: Unused packages, old JDKs, and browser plugins removed
+
+Holding folder for the plugins: `/private/var/tmp/usr-local-removed-20261024-181442/Library/`
+
+- **Uninstalled Homebrew formulas** `libimobiledevice`, `sqlcipher` (never run), `lazygit` (run once), and `speedtest-cli` (run twice), plus the libraries only they needed. Removed from the Brewfile.
+- **Uninstalled the `hp-easy-start` cask** (one-time printer setup).
+- **Deleted Corretto 18 and Zulu 19** from `~/Library/Java/JavaVirtualMachines` (640 MB). No project targets them; IDE projects use JBR 21. Kept: Homebrew `openjdk` (27), `openjdk@21`, and JBR 17.
+- **Moved the Intel Java 8 browser plugin and Flash Player leftovers** to the holding folder: `JavaAppletPlugin.plugin`, `PepperFlashPlayer`, `flashplayer.xpt`, both System Settings panels, `/Library/Application Support/Oracle` and `Macromedia`, and the `com.oracle.java.Java-Updater` launch agent, which tried and failed to run an Intel updater at each login.
+- **Python 3.14 is now installed on request.** `brew autoremove` removed it along with `speedtest-cli`, which broke `whisper` (pipx) and `~/projects/scripts/.venv`, both built on it. It was reinstalled with `brew install python@3.14`, so autoremove keeps it.
+  - *If a Python tool fails with "bad interpreter":* its virtual environment points at a Homebrew Python that is gone. Check with `head -1 $(which <tool>)`, then reinstall that Python or run `pipx reinstall <package>`.
+  - *Before running `brew autoremove`:* check for venvs that use the Pythons it lists.
+
 ## 2026-10-24: Rectangle removed (Rectangle Pro kept)
 
 - **Uninstalled the `rectangle` cask** and removed it from the Brewfile. Rectangle Pro does the same job and is the one that runs at login. macOS had no record of Rectangle being opened.

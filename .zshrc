@@ -13,8 +13,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # =============================================================================
 typeset -U PATH path  # drop duplicate PATH entries (macOS already adds /usr/local/bin)
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
 # Android SDK
 export ANDROID_HOME=~/Library/Android/sdk

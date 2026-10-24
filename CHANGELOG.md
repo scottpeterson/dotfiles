@@ -6,6 +6,15 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: Two PATH lines removed from .zshrc
+
+Backup: `~/.dotfiles_backup/20261024-182308/.zshrc`
+
+- **Removed `export PATH="/usr/local/opt/openjdk/bin:$PATH"`.** The folder doesn't exist (Intel Homebrew path). `java` runs Homebrew's OpenJDK through `/usr/bin/java`.
+- **Removed `export PATH="/opt/homebrew/bin:$PATH"`.** `brew shellenv` in `.zprofile` already adds it.
+- **New order:** `~/.bun/bin`, `~/.local/bin`, `~/bin`, `/usr/local/bin`, `/opt/homebrew/bin`, `/opt/homebrew/sbin`, then system folders. Of 1,708 command names on PATH, only `code` and `macupdater_client` now resolve to a different file (`/usr/local/bin` instead of `/opt/homebrew/bin`), and both copies link to the same app, so nothing behaves differently.
+  - *If a command runs the wrong version:* run `which -a <command>` to see every match in PATH order. A file in `~/bin` or `/usr/local/bin` now wins over Homebrew's copy.
+
 ## 2026-10-24: Home-folder clutter deleted
 
 No backup; none of these held settings.

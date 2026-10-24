@@ -6,6 +6,14 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: Git aliases trimmed
+
+Backup: `~/.dotfiles_backup/20261024-182057/.gitconfig`
+
+- **Removed 72 git aliases from `.gitconfig`.** Shell history since 2019 showed none of them in use, and no script or Claude config called them. Kept: `ddiff`, `dlog`, `dshow` (difftastic on request) and `permission-reset`.
+  - *You might notice:* `git <alias>` reports "is not a git command". To get one back, copy its line from the backup into the `[alias]` section.
+  - *Removed:* `git` `l` `lr` `ll` `lb` `lx` `la` `lra` `lla` `lba` `lxa` `ribbon` `catchup` `catchupall` `showf` `filelog` `relnotes` `precommit` `s` `st` `g` `d` `dc` `dl` `wdiff` `ss` `sl` `sa` `sd` `stashes` `snapshot` `b` `bl` `cob` `branches` `a` `ap` `assume` `unassume` `assumed` `unstage` `discard` `uncommit` `amend` `nuke` `c` `ci` `ca` `ours` `theirs` `mt` `mnf` `tags` `t` `cl` `co` `pl` `ph` `rv` `remotes` `ch` `cp` `cherry` `fp` `r` `rc` `rs` `continue` `skip` `sdiff` `spush` `supdate`
+
 ## 2026-10-24: Unused packages, old JDKs, and browser plugins removed
 
 Holding folder for the plugins: `/private/var/tmp/usr-local-removed-20261024-181442/Library/`

@@ -6,6 +6,17 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-24: /usr/local cleared of Intel-era leftovers
+
+Holding folder (nothing deleted yet): `/private/var/tmp/usr-local-removed-20261024-181442/` (2.9 GB). Each item keeps its original path inside it, for example `.../usr/local/bin/heroku`.
+
+- **Moved 160 items out of `/usr/local`** (2.9 GB down to 1 MB). This Mac has no Rosetta, so none of the Intel, 32-bit Intel, or PowerPC programs could run. Moved: the 2019 .NET SDK and its `/etc/paths.d/dotnet` and `dotnet-cli-tools` entries; the old Intel Homebrew (`/usr/local/Homebrew`, `etc`, `var`, `include`, `share`); Python 2.7 to 3.10 libraries; the Heroku CLI; Ruby gems for the system Ruby (`bundle`, `bundler`); npm 8 and the Angular CLI; the git 2.7.1 installer; Docker, VirtualBox, Vagrant, kubectl, VLC, FileBot, R, Tcl/Tk, TextWrangler, and texinfo tools; FUSE and NTFS libraries; Citrix helper apps; Intel OpenSSL; man pages.
+- **Kept in `/usr/local/bin`:** `code`, `macupdater_client`, and the JetBrains Toolbox launchers `idea`, `studio`, `studio1`. Also kept: `/usr/local/remotedesktop` (Apple Remote Desktop).
+  - *You might notice:* `heroku`, `bundle`, `ng`, `R`, `dotnet`, `info`, and `kubectl` report "command not found". None of them ran on this Mac before.
+  - *If tab completion shows an error in a new shell:* run `rm ~/.zcompdump*` and open a new tab.
+  - *To restore one item:* `sudo mv /private/var/tmp/usr-local-removed-20261024-181442/usr/local/bin/<name> /usr/local/bin/`
+  - *To finish:* after a few days with no problems, run `sudo rm -rf /private/var/tmp/usr-local-removed-20261024-181442`. macOS may also clear `/private/var/tmp` on its own over time, so restore anything you want before then.
+
 ## 2026-10-24: Git attributes tracked
 
 - **Added `.config/git/attributes` to `dotfiles.list`.** It holds `* merge=mergiraf`, which tells git to use the mergiraf merge driver defined in `.gitconfig` for every file. No change on this Mac; a new Mac now gets the driver turned on by `./dotfiles.sh install`.

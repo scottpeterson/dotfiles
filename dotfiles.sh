@@ -52,6 +52,15 @@ cmd_pull() {
 
   if command -v brew >/dev/null 2>&1; then
     brew bundle dump --force --file="$repo_dir/Brewfile"
+    # mas reports TestFlight builds as id 0, which brew bundle can't install.
+    local testflight
+    testflight=$(grep -E '^mas ".*", id: 0$' "$repo_dir/Brewfile" | cut -d'"' -f2 || true)
+    if [[ -n "$testflight" ]]; then
+      grep -vE '^mas ".*", id: 0$' "$repo_dir/Brewfile" > "$repo_dir/Brewfile.tmp"
+      mv "$repo_dir/Brewfile.tmp" "$repo_dir/Brewfile"
+      echo "dropped TestFlight apps from Brewfile (install them from TestFlight):"
+      echo "$testflight" | sed 's/^/          /'
+    fi
     echo "pulled  Brewfile"
   fi
 

@@ -12,7 +12,7 @@ Shell, git, and terminal configuration for macOS, plus a Brewfile of installed p
 |---------|--------------|
 | `./dotfiles.sh status` | Lists each tracked file as `same`, `differs`, or missing on one side. |
 | `./dotfiles.sh diff` | Shows a unified diff from the repo copy to the home copy. |
-| `./dotfiles.sh pull` | Copies the home files into the repo and regenerates `Brewfile` from installed packages. |
+| `./dotfiles.sh pull` | Copies the home files into the repo and regenerates `Brewfile` from installed packages. It leaves out TestFlight apps and lists them, because `brew bundle` can't install them. |
 | `./dotfiles.sh install` | Copies the repo files into `$HOME`. Before it replaces a file, it saves the old copy to `~/.dotfiles_backup/<timestamp>/`. |
 
 To save changes from this machine, run `./dotfiles.sh pull`, review `git diff`, add an entry to `CHANGELOG.md`, then commit.
@@ -29,6 +29,8 @@ git clone https://github.com/scottpeterson/dotfiles.git ~/projects/dotfiles
 ```
 
 `all_brew.bash` installs Homebrew if needed, installs the Brewfile, upgrades casks, and runs `./dotfiles.sh install`. The login shell stays macOS's `/bin/zsh`.
+
+TestFlight apps (Calico mini, Lettera, and Portal Beta) aren't in the Brewfile. Install them from the TestFlight app.
 
 The shell config expects oh-my-zsh with the `zsh-autosuggestions` plugin. Install those before you open a new shell. [Starship](https://starship.rs) draws the prompt; the Brewfile installs it, and `.config/starship.toml` configures it. The prompt uses Powerline symbols, so the terminal font must be a Nerd Font (iTerm2 and Ghostty both use MesloLGS Nerd Font).
 

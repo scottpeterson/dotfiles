@@ -6,6 +6,13 @@ Before a file in `$HOME` is edited, a copy goes to `~/.dotfiles_backup/<timestam
 
 When you change a tracked file, add an entry here in the same commit.
 
+## 2026-10-25: TestFlight apps left out of the Brewfile; Ghostty titlebar setting removed
+
+- **`./dotfiles.sh pull` now removes `mas` lines with `id: 0` after `brew bundle dump`** and prints their names. `mas` reports TestFlight builds as ID 0, and `brew bundle` fails trying to install them on a new Mac. This removed Calico mini, Lettera, and Portal Beta from the Brewfile. The README says to install them from TestFlight.
+  - *If an App Store app goes missing from the Brewfile:* check whether `mas list` shows it with ID 0. If it does, it came from TestFlight.
+- **Ghostty: removed `macos-titlebar-style = tabs`** (your edit on this machine, 2026-10-25). Ghostty now uses its default titlebar style, which draws the tab bar below the titlebar instead of inside it.
+  - *To undo:* add `macos-titlebar-style = tabs` back to `~/.config/ghostty/config` and reload with Cmd+Shift+,.
+
 ## 2026-10-24: Dead include block removed from .gitconfig
 
 Backup: `~/.dotfiles_backup/20261024-195938/.gitconfig`

@@ -117,11 +117,8 @@ mas "1Blocker", id: 1365531024
 mas "1Password for Safari", id: 1569813296
 mas "Amphetamine", id: 937984704
 mas "Bear", id: 1091189122
-mas "Calico mini", id: 0
 mas "HP", id: 1474276998
-mas "Lettera", id: 0
 mas "Paprika Recipe Manager 3", id: 1303222628
-mas "Portal Beta", id: 0
 mas "Save to Reader", id: 1640236961
 mas "TestFlight", id: 899247664
 mas "Things", id: 904280696

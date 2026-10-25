@@ -68,7 +68,7 @@ Moved 34 items (1.4 GB) to the holding folder `/private/var/tmp/usr-local-remove
   - *If the current Android Studio canary breaks:* install an older build from Toolbox's version list or the Android Studio download archive. Toolbox can no longer roll back on its own.
 - **Ran `uv cache prune`:** removed 37,578 unused entries (1.3 GB). Cache now 839 MB. The `d3-bball-npi` and `scripts` venvs still import their packages.
 - **Deleted Android SDK build-tools 30.0.2, 30.0.3, 32.0.0, 33.0.0, 33.0.1, 34.0.0** and **platforms android-30 to android-34** (1.6 GB) from `~/Library/Android/sdk`. Kept: build-tools 35.0.0, 35.0.1, 36.0.0; platforms 35, 36, 37.0. Projects compile against SDK 36 and 37.
-  - *Check so far:* a `todoistFocus` build got through Gradle configuration and found android-36, then stopped on an unrelated issue (its new dependencies need compileSdk 37). A full build has not been confirmed yet.
+  - *Confirmed 2026-10-25:* a clean `todoistFocus` build (`clean assembleDebug testDebugUnitTest`, no build cache) succeeded against compileSdk 37 on the `fix/todoist-api-v1-and-tech-debt` branch. All 36 unit tests passed.
   - *If a build reports "Failed to find Build Tools revision X" or "Failed to find target android-N":* install that version from Android Studio > **Settings** > **Languages & Frameworks** > **Android SDK**.
 - **Not changed:** Carbon Copy Cloner's task database (5.4 GB). It belongs to the active backup task; trim it from CCC > **Task History** if needed.
 
